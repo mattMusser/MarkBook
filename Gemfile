@@ -20,10 +20,13 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use Devise for Authentication
-gem 'devise'
+gem 'devise', '~> 4.3'
 
 # Use HAML as alternative to ERB
 gem 'haml'
+
+# Use figaro to store environment variables
+gem 'figaro', '~> 1.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
