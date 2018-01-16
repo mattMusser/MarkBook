@@ -23,6 +23,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'devise'
 
 # Use HAML as alternative to ERB
+gem 'haml'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
