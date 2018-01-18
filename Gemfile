@@ -12,21 +12,32 @@ gem 'rails', '~> 5.1.4'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
+
+# **** STYLING ****
+# Use SCSS for stylesheets
+gem 'sass-rails', '~> 5.0'
+# Use Bootstrap 3
+gem 'bootstrap-sass', '~> 3.3'
+# Use Sprockets Rails
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+# Bootstrap Javascript depends on jQuery
+gem 'jquery-rails', '~> 4.3'
+# Used to access font-awesome fonts
+gem 'font-awesome-rails', '~> 4.7'
 
 # Use Devise for Authentication
 gem 'devise', '~> 4.3'
-
-# Use HAML as alternative to ERB
-gem 'haml'
-
+# User Faker to generate seed data
+gem 'faker', '~> 1.8'
 # Use figaro to store environment variables
 gem 'figaro', '~> 1.1'
+# Use HAML as alternative to ERB
+gem 'haml'
+# Use Pundit for authorization
+gem 'pundit', '~> 1.1'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -34,13 +45,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
