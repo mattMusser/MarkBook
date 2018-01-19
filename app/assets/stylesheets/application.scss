@@ -16,3 +16,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "bootstrap/theme";
+
+.navbar a {
+	color: rgb(7, 7, 7);
+}
+
+.navbar a:hover {
+	color: #FFF;
+}
+
+.navbar .userStatus {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.navbar .userDropDown a {
+	color: #333;
+}
+
+.navbar userDropDown a:hover {
+	color: #333;
+	text-decoration: underline;
+}
