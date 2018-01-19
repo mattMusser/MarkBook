@@ -1,0 +1,12 @@
+%h1 Topics
+.row
+	.col-md-8
+		- @topics.each do |topic|
+			.media
+				%h4.media-heading
+					= link_to topic.title, topic
+		.col-md-4
+			.div
+				= link_to "New Topic", new_topic_path, class: 'btn btn-success'
+			.div
+				= link_to "Delete Topic", @topic, method: :delete, class: 'btn btn-danger'

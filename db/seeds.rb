@@ -18,6 +18,15 @@ standard.skip_confirmation!
 standard.save!
 users = User.all
 
+# Create Topics
+20.times do
+	Topic.create!(
+		title: Faker::ProgrammingLanguage.name
+	)
+end
+
+
 puts "Seeding Finished"
 puts "-.-.-.-.-.-.-.-.-"
 puts "#{User.count} total users"
+puts "#{Topic.count} total topics"
