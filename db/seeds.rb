@@ -25,6 +25,12 @@ users = User.all
 	)
 end
 
+# Create Bookmarks
+10.times do
+	Bookmark.create!(
+		url: Faker::Internet.url
+	)
+end
 
 puts "Seeding Finished"
 puts "-.-.-.-.-.-.-.-.-"
