@@ -1,3 +1,3 @@
 class Bookmark < ApplicationRecord
-  belongs_to :topic
+  belongs_to :topic, optional: true
 end

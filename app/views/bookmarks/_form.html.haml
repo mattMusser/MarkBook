@@ -1,0 +1,15 @@
+= form_for [topic, bookmark] do |form|
+	- if bookmark.errors.any?
+		.alert.alert-danger
+			%h4
+				= pluralize(bookmark.errors.count, "error")
+				\.
+			%ul
+				- bookmark.errors.full_messages.each do |msg|
+					%li
+						= msg
+	= form_group_tag(bookmark.errors[:url]) do
+		= form.label :url
+		= form.text_field :url, class: 'form-control', placeholder: 'Enter website url'
+	.form-group
+		= form.submit "Save", class: 'btn btn-md btn-success'

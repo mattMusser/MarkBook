@@ -24,15 +24,19 @@ users = User.all
 		title: Faker::ProgrammingLanguage.name
 	)
 end
+topics = Topic.all
 
 # Create Bookmarks
-10.times do
+50.times do
 	Bookmark.create!(
+		topic: topics.sample,
 		url: Faker::Internet.url
 	)
 end
+bookmarks = Bookmark.all
 
 puts "Seeding Finished"
 puts "-.-.-.-.-.-.-.-.-"
 puts "#{User.count} total users"
 puts "#{Topic.count} total topics"
+puts "#{Bookmark.count} total bookmarks"
