@@ -11,6 +11,8 @@
 				%ul.nav.navbar-nav
 					%li.nav-item
 						= link_to "Home", root_path, class: "nav-link"
+					%li.nav-item
+						= link_to "Topics", topics_path, class: "nav-link"
 					%li.nav.item
 						= link_to "FAQ", faq_path, class: "nav-link"
 				- if user_signed_in?
