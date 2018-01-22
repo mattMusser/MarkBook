@@ -1,0 +1,10 @@
+%h1
+	= @topic.title
+.row
+	.col-md-8
+		- @topic.bookmarks.each do |bookmark|
+			.media
+				.media-body
+					%h4.media-heading
+						= link_to bookmark.title, topic_bookmark_path(@topic, bookmark)
+	
