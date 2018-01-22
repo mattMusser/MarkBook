@@ -1,0 +1,14 @@
+%h1 New Topic
+.row
+	.col-md-4
+		%p Guidelines for topics:
+		%ul
+			%li Topics mustn't contain profanity
+			%li Topics must be family friendly
+	.col-md-8
+		= form_for @topic do |form|
+			.form-group
+				= form.label :title
+				= form.text_field :title, class: 'form-control', placeholder: "Enter topic title"
+			= form.submit "Save", class: 'btn btn-sm btn-success'
+

@@ -1,11 +1,12 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all
-    @bookmarks = Bookmark.all
+    #@bookmarks = Bookmark.all
   end
 
   def show
-    @topic = Bookmark.find(params[:id])
+    @topic = Topic.find(params[:id])
+    #topic = Bookmark.find(params[:id])
   end
 
   def new
@@ -16,7 +17,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
 
     if @topic.save
-      redirect_to @topic, notice: "\"#{@topic.name}\" was saved successfully."
+      redirect_to @topic, notice: "Topic was saved successfully."
     else
       flash.now[:alert] = "Something went wrong and the topic wasn't saved. Please try again."
       render :new
@@ -45,10 +46,10 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
 
     if @topic.destroy
-      flash[:notice] = "\"#{@topic.name}\" was deleted successfully."
+      flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
       redirect_to action: :index
     else
-      flash.now[:alert] = "Something went wrong and \"#{@topic.name}\" wasn't deleted."
+      flash.now[:alert] = "Something went wrong and \"#{@topic.title}\" wasn't deleted."
       render :show
     end
   end
