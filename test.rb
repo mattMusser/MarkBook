@@ -1,0 +1,9 @@
+class test
+  %h1 New Bookmark
+  %br
+    .row
+      .col-md-4
+        = render partial: "guidelines"
+      .col-md-8
+        = render partial: 'form', locals: {topic: @topic, bookmark: @bookmark}
+end
