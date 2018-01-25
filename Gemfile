@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.5.0" # for heroku
+ # for heroku
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -65,8 +65,7 @@ group :development do
 end
 
 group :production do
-  gem 'pg', '0.21.0'
-  gem 'rails_12factor', '0.0.3'
+  gem 'pg', '~> 0.20'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
