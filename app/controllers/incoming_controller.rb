@@ -5,31 +5,23 @@ class IncomingController < ApplicationController
   def create
     # You put the message-splitting and business
     # magic here.
-      # Find the user by using params[:sender]
-      @user = params[:sender]
-      # Find the topic by using params[:subject]
-      @topic = params[:subject]
-      # Assign the url to a variable after retrieving it from params["body-plain"]
-      @url = params["body-plain"]
-      # Check if user is nil, if so, create and save a new user
-      if user.nil?
-        @user = User.new(params[:sender])
-        @user.save
-      end
-      #Check if user the topic is nil, if so, create and save a new topic
-      if @topic.nil?
-        @topic = Topic.new(params[:subject])
-        @topic.save
-      end
-      #now that you're sure you have a valid user and topic, build and save a new bookmark
-      @bookmark = @topic.bookmarks.build(bookmark_params)
-      @bookmark.save
-
+    # Find the user by using params[:sender]
+    @user = User.where(email: params[:sender])
+    # Find the topic by using params[:subject]
+    @topic = Topic.where(title: params[:subject])
+    # Assign the url to a variable after retrieving it from params["body-plain"]
+    @url = params["body-plain"]
+    # Check if user is nil, if so, create and save a new user
+    if @user.nil?
+      @user = User.create!(username: "Default", email: params[:sender], password: "changeme")
+    end
+    #Check if user the topic is nil, if so, create and save a new topic
+    if @topic.nil?
+      @topic = Topic.create!(title: params[:subject], user: @user)
+    end
+    #now that you're sure you have a valid user and topic, build and save a new bookmark
+    @bookmark = @topic.bookmarks.create!(url: @url, user: @user)
+    # Assuming all went well
     head 200
   end
-
-  private
-  def bookmark_params
-    params.require(:bookmark).permit(:url)
-  end
-end 
+end
