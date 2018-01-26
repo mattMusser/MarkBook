@@ -92,9 +92,15 @@ GEM
       railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    griddler (1.1.1)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-mailgun (1.0.3)
+      griddler
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
+    htmlentities (4.3.4)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -246,6 +252,8 @@ DEPENDENCIES
   faker (~> 1.8)
   figaro (~> 1.1)
   font-awesome-rails
+  griddler (~> 1.1.0)
+  griddler-mailgun (~> 1.0.3)
   haml
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3)

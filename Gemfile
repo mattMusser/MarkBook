@@ -37,6 +37,9 @@ gem 'haml'
 # Use Pundit for authorization
 gem 'pundit', '~> 1.1'
 
+# User Griddler to proccess incoming emails
+gem 'griddler', '~> 1.1.0'
+gem 'griddler-mailgun', '~> 1.0.3'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
