@@ -23,6 +23,7 @@ class IncomingController < ApplicationController
       end
       #now that you're sure you have a valid user and topic, build and save a new bookmark
       @bookmark = @topic.bookmarks.build(bookmark_params)
+      @bookmark.save
 
     head 200
   end
