@@ -10,7 +10,7 @@ end
 # Create Admin User
 
 # Create Standard User
-standard = User.find_or_initialize_by(username: 'standard', email: 'standard@markshare.com') do |user|
+standard = User.find_or_initialize_by(username: 'standard', email: 'markshare101@gmail.com') do |user|
 	user.password = 'password'
 	#user.role = 'standard'
 end
