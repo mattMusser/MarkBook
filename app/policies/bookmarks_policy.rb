@@ -1,9 +1,9 @@
-class ApplicationPolicy
+class BookmarksPolicy < ApplicationPolicy
 	attr_reader :user, :bookmark
 
 	def initialize(user, bookmark)
 		@user = user
-		@record = record
+		@bookmark = bookmark
 	end
 
 	def index?
@@ -35,7 +35,7 @@ class ApplicationPolicy
 	end
 
 	def scope
-		Pundit.policy_scope!(user, record.class)
+		Pundit.policy_scope!(user, bookmark.class)
 	end
 
 	class Scope

@@ -1,6 +1,9 @@
 class BookmarksController < ApplicationController
+  authorize :bookmark, :show?
+
   def show
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
     redirect_to @bookmark.url
   end
 
