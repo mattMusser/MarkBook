@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :topics
+  has_many :bookmarks
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

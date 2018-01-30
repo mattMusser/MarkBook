@@ -10,7 +10,7 @@
 				.media-body
 					%h4.media-heading
 						= link_to bookmark.url, topic_bookmark_path(@topic, bookmark)
-						- if policy(bookmark).update? || policy(bookmark).destroy?
+						- if policy(:bookmarks).update? || policy(:bookmarks).destroy?
 							\-
 							\#{link_to "Edit", edit_topic_bookmark_path(bookmark.topic, bookmark), class: 'btn btn-xs btn-warning'}
 							\

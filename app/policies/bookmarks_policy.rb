@@ -1,4 +1,4 @@
-class bookmarksPolicy < ApplicationPolicy
+class BookmarksPolicy < ApplicationPolicy
 	attr_reader :user, :bookmark
 
 	def initialize(user, bookmark)
@@ -23,7 +23,7 @@ class bookmarksPolicy < ApplicationPolicy
 	end
 
 	def update?
-		user.present? && (@bookmark.user == user)
+		user.present?
 	end
 
 	def edit?
@@ -31,7 +31,7 @@ class bookmarksPolicy < ApplicationPolicy
 	end
 
 	def destroy?
-		user.present? && (@bookmark.user == user)
+		user.present?
 	end
 
 	def scope

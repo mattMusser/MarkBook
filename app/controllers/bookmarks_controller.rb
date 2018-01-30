@@ -1,6 +1,4 @@
 class BookmarksController < ApplicationController
-  authorize :bookmark, :show?
-
   def show
     @bookmark = Bookmark.find(params[:id])
     authorize @bookmark
