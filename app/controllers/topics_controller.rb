@@ -5,6 +5,9 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @user = current_user
+    puts "user: #{@user.username}"
+    puts "user: #{@user.present?}"
   end
 
   def new

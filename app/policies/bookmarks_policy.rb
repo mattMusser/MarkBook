@@ -23,7 +23,7 @@ class BookmarksPolicy < ApplicationPolicy
 	end
 
 	def update?
-		user.present?
+		user.present? && (bookmark.user == user)
 	end
 
 	def edit?
@@ -31,7 +31,7 @@ class BookmarksPolicy < ApplicationPolicy
 	end
 
 	def destroy?
-		user.present?
+		user.present? && (bookmark.user == user)
 	end
 
 	def scope
