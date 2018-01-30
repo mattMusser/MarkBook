@@ -7,9 +7,6 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
-    @user.assign_attributes(user_params)
-
     if current_user.update_attributes(user_params)
       flash[:notice] = "User information was updated."
       redirect_to edit_user_registration_path
@@ -21,6 +18,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:username, :email)
+    params.require(:user).permit(:email)
   end
 end
