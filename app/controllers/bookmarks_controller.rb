@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   def show
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
     redirect_to @bookmark.url
   end
 
@@ -12,10 +13,12 @@ class BookmarksController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     @bookmark = @topic.bookmarks.build(bookmark_params)
+    @bookmark.user = current_user
+    authorize @bookmark
 
     if @bookmark.save
       flash[:notice] = "Bookmark was saved."
-      redirect_to [@topic]
+      redirect_to @topic
     else
       flash.now[:alert] = "Something went wrong and your bookmark wasn't saved. Please try again."
       render :new
@@ -24,15 +27,16 @@ class BookmarksController < ApplicationController
 
   def edit
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
   end
 
   def update
     @bookmark = Bookmark.find(params[:id])
+    authorize @bookmark
     @bookmark.assign_attributes(bookmark_params)
-
     if @bookmark.save
       flash[:notice] = "Bookmark was updated."
-      redirect_to [@bookmark.topic, @bookmark]
+      redirect_to @bookmark.topic
     else
       flash.now[:alert] = "Something went wrong and the bookmark wasn't saved. Please try again."
       render :edit

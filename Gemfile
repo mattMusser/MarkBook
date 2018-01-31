@@ -35,7 +35,7 @@ gem 'figaro', '~> 1.1'
 # Use HAML as alternative to ERB
 gem 'haml'
 # Use Pundit for authorization
-gem 'pundit', '~> 1.1'
+gem 'pundit'
 
 
 # Use CoffeeScript for .coffee assets and views
