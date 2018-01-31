@@ -36,7 +36,8 @@ gem 'figaro', '~> 1.1'
 gem 'haml'
 # Use Pundit for authorization
 gem 'pundit'
-
+# Use Friendly_id to make urls less cryptic
+gem 'friendly_id', '~> 5.1'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
