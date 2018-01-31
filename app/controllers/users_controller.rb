@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   def index
     @users = User.all
-    puts "user: #{user}"
   end
 
   def show
