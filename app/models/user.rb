@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  has_many :topics, dependent: :destroy
-  has_many :bookmarks, dependent: :destroy
-  has_many :likes, dependent: :destroy
-
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :topics
+  has_many :bookmarks
+  has_many :likes, dependent: :destroy
 
   validates :username,
     :presence => true,
@@ -18,6 +18,8 @@ class User < ApplicationRecord
   end
 
   def liked(bookmark)
-    likes.where(bookmark_id: bookmark.id).first
+    if bookmark
+      likes.where(bookmark_id: bookmark.id).first
+    end
   end
 end
