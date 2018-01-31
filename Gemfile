@@ -24,7 +24,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Bootstrap Javascript depends on jQuery
 gem 'jquery-rails', '~> 4.3'
 # Used to access font-awesome fonts
-gem 'font-awesome-rails'
+gem 'font-awesome-rails', '~> 4.7'
 
 # Use Devise for Authentication
 gem 'devise', '~> 4.3'
