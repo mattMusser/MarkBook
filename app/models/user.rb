@@ -17,4 +17,7 @@ class User < ApplicationRecord
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end
 
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
+  end
 end
