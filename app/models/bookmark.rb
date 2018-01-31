@@ -1,4 +1,14 @@
 class Bookmark < ApplicationRecord
   belongs_to :topic, optional: true
   belongs_to :user
+
+  before_save :format_url
+
+  private
+
+  def format_url
+    unless self.url[/\Ahttp:\/\//] || self.url[/\Ahttps:\/\//]
+      self.url = "http://#{self.url}"
+    end
+  end
 end
