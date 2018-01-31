@@ -3,6 +3,7 @@ class Bookmark < ApplicationRecord
   belongs_to :user
 
   before_save :format_url
+  validates :url, :presence => true
 
   private
 
