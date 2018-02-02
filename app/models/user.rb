@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :topics
-  has_many :bookmarks
+  has_many :bookmarks, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -16,4 +17,7 @@ class User < ApplicationRecord
     "http://gravatar.com/avatar/#{gravatar_id}.png?s=#{size}"
   end
 
+  def liked(bookmark)
+    likes.where(bookmark_id: bookmark.id).first
+  end
 end
