@@ -1,7 +1,11 @@
 class LikesController < ApplicationController
   def index
+   
   end
-
+  puts "#{like}"
+  puts "#{likes}"
+  puts  "#{Like.new}"
+  puts "#{Like}"
   def create
     @bookmark = Bookmark.find(params[:bookmark_id])
     like = current_user.likes.build(bookmark: @bookmark)
