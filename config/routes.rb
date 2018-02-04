@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :topics do
     resources :bookmarks, except: [:index] do
       resources :likes, only: [:index, :create, :destroy]
+    end
   end
 
   resources :users, only: [:index, :show]
