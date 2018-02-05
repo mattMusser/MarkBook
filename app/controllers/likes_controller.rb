@@ -1,8 +1,10 @@
 class LikesController < ApplicationController
   def index
+    likes = LIke.where(user_id: current_user_id)
   end
 
   def create
+    @topic = Topic.find(params[:topic_id])
     @bookmark = Bookmark.find(params[:bookmark_id])
     like = current_user.likes.build(bookmark: @bookmark)
 
@@ -16,8 +18,9 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    bookmark = Bookmark.find(params[:bookmark_id]
-    like = current_user.likes.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
+    @bookmark = Bookmark.find(params[:bookmark_id])
+    like = current_user.likes.find_by(bookmark_id: @bookmark.id)
 
     if like.destroy
       flash[:success] = "You don't like #{@bookmark.url}"
