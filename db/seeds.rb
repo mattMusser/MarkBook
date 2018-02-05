@@ -28,11 +28,12 @@ topics = Topic.all
 
 # Create Bookmarks
 50.times do
-	Bookmark.create!(
+	bookmark = Bookmark.create!(
 		topic: topics.sample,
 		url: Faker::Internet.url,
 		user: users.sample
 	)
+	rand(1..5).times { bookmark.likes.create!(user: users.sample) }
 end
 bookmarks = Bookmark.all
 
