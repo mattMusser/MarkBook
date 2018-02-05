@@ -6,11 +6,7 @@ class User < ApplicationRecord
   has_many :bookmarks
   has_many :likes, dependent: :destroy
 
-  validates :username,
-    :presence => true,
-    :uniqueness => {
-      :case_sensitive => false
-    }
+
 
   def avatar_url(size)
     gravatar_id = Digest::MD5::hexdigest(self.email).downcase

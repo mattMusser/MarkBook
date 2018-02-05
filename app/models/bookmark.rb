@@ -4,7 +4,7 @@ class Bookmark < ApplicationRecord
   has_many :likes, dependent: :destroy
 
   before_save :format_url
-  validates :url, :presence => true
+  #validates :url, :presence => true
 
   private
 
