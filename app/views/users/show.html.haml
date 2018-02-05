@@ -1,0 +1,26 @@
+%h1{:align => "center"}
+	= current_user.username
+%br
+.container
+	.row
+		%h2
+			Your Bookmarks
+		.col-md-8
+			- @user_bookmarks.each do |user_bookmark|
+				.media
+					.media-body
+						\#{user_bookmark.topic.title}
+						%br
+						\#{link_to user_bookmark.url, user_bookmark.url, :target => '_blank'}
+						\#{link_to "Delete", [user_bookmark.topic, user_bookmark], method: :delete, class: 'btn btn-sm btn-danger'}
+.container
+	.row
+		%h2 Liked Bookmarks
+		.col-md-8
+			- @liked_bookmarks.each do |liked_bookmark|
+				.media
+					.media-body
+						\#{liked_bookmark.topic.title}
+						%br
+						\#{link_to liked_bookmark.url, liked_bookmark.url, :target => '_blank'}
+						\#{render partial: 'likes/like', locals: { bookmark: liked_bookmark }} 	
