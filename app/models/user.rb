@@ -2,6 +2,7 @@ class User < ApplicationRecord
   has_many :topics
   has_many :bookmarks, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :liked_bookmarks, through: :likes, source: :bookmark
 
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  resources :users, only: [:show]
 
   post :incoming, to: 'incoming#create'
 
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :users, only: [:index, :show]
   get 'faq' => 'welcome#faq'
 
   root 'welcome#index'
