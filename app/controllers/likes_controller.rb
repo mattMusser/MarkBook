@@ -1,7 +1,7 @@
 class LikesController < ApplicationController
   def index
   end
-  
+
   def create
     @bookmark = Bookmark.find(params[:bookmark_id])
     like = current_user.likes.build(bookmark: @bookmark)
@@ -20,7 +20,7 @@ class LikesController < ApplicationController
     like = current_user.likes.find(params[:id])
 
     if like.destroy
-      flash[:success] = "You don't like #{@book.url}"
+      flash[:success] = "You don't like #{@bookmark.url}"
       redirect_to @topic
     else
       flash[:error] = "We apologize but something went wrong and the bookmark wasn't unliked."

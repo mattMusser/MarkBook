@@ -13,6 +13,8 @@ class User < ApplicationRecord
   end
 
   def liked(bookmark)
+    puts "bookmark: #{bookmark}"
+    puts "bookmark.id: #{bookmark.id}"
     likes.where(bookmark_id: bookmark.id).first
   end
 end
