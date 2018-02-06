@@ -6,6 +6,7 @@
 			- @topics.each do |topic|
 				.media
 					%h4.media-heading
+						%i.fa.fa-angle-dougle-right
 						= link_to topic.title, topic
 						- if user_signed_in?
 							\-
