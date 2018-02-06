@@ -10,7 +10,7 @@
 
 ActionMailer::Base.smtp_settings = {
 	port:										587,
-	address:								'smtp.sendgrid.net',
+	address:								'smtp.mailgun.org',
 	user_name:							ENV['MAILGUN_SMTP_LOGIN'],
 	password:								ENV['MAILGUN_SMTP_PASSWORD'],
 	domain:									'mark-share.herokuapp.com',

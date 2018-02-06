@@ -90,9 +90,16 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   # Default url configuration for Devise
-  config.action_mailer.default_url_options = {:host => 'heroku.com'}
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default_url_options = {:host => 'mark-share.herokuapp.com'},
+  config.action_mailer.perform_deliveries = true,
+  config.action_mailer.raise_delivery_errors = true,
+  config.action_mailer.default :charset => "utf-8",
+  config.action_mailer.delivery_method = :smtp,
+  config.action_mailer.smtp_settings = {
+    :user_name       =>				ENV['MAILGUN_SMTP_LOGIN'],
+    :password        =>				ENV['MAILGUN_SMTP_PASSWORD'],
+    :adress          =>       'smtp.mailgun.org',
+    :domain          =>       'mark-share.herokuapp.com',
+    :authenticqation =>       'text/html'
+  }
 end
