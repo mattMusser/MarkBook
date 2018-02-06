@@ -91,5 +91,4 @@ Rails.application.configure do
   
   #Mailer Configuration
   config.action_mailer.default_url_options = {:host => 'https://mark-share.herokuapp.com/'}
-  }
 end
