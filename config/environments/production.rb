@@ -99,6 +99,7 @@ Rails.application.configure do
     :password        =>				ENV['MAILGUN_SMTP_PASSWORD'],
     :adress          =>       'smtp.mailgun.org',
     :domain          =>       'mark-share.herokuapp.com',
+    :port            =>       587,
     :authenticqation =>       'text/html'
   }
 end
