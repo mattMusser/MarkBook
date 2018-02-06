@@ -90,10 +90,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   #Mailer Configuration
-  require 'rubygems' if RUBY_VERSION < '1.9'
-  require 'rest_client'
-  require 'json'
-
   response = RestClient.get "https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}"
 
   first_inbox = JSON.parse(response)[0] # get first inbox
