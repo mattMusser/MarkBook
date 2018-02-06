@@ -95,11 +95,11 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name       =>				ENV['MAILGUN_SMTP_LOGIN'],
-    :password        =>				ENV['MAILGUN_SMTP_PASSWORD'],
-    :adress          =>       'smtp.mailgun.org',
+    :user_name       =>				ENV['MAILTRAP_SMTP_LOGIN'],
+    :password        =>				ENV['MAILTRAP_SMTP_PASSWORD'],
+    :adress          =>       'smtp.mailtrap.io',
     :domain          =>       'mark-share.herokuapp.com',
-    :port            =>       587,
-    :authenticqation =>       'text/html'
+    :port            =>       2525,
+    :authenticqation =>       'plain'
   }
 end
