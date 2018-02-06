@@ -22,6 +22,18 @@ ActiveRecord::Schema.define(version: 20180202215141) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "bookmark_id"
@@ -36,6 +48,8 @@ ActiveRecord::Schema.define(version: 20180202215141) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_topics_on_slug"
     t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
