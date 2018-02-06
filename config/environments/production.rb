@@ -89,17 +89,25 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
-  # Default url configuration for Devise
+  #Mailer Configuration
+  require 'rubygems' if RUBY_VERSION < '1.9'
+  require 'rest_client'
+  require 'json'
+
+  response = RestClient.get "https://mailtrap.io/api/v1/inboxes.json?api_token=#{ENV['MAILTRAP_API_TOKEN']}"
+
+  first_inbox = JSON.parse(response)[0] # get first inbox
+  
   config.action_mailer.default_url_options = {:host => 'mark-share.herokuapp.com'}
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :user_name       =>				ENV['MAILTRAP_SMTP_LOGIN'],
-    :password        =>				ENV['MAILTRAP_SMTP_PASSWORD'],
-    :adress          =>       'smtp.mailtrap.io',
-    :domain          =>       'mark-share.herokuapp.com',
-    :port            =>       2525,
+    :user_name       =>				first_inbox[ENV['MAILTRAP_SMTP_LOGIN']],
+    :password        =>				first_inbox[ENV['MAILTRAP_SMTP_PASSWORD']],
+    :adress          =>       first_inbox['smtp.mailtrap.io'],
+    :domain          =>       first_inbox['mark-share.herokuapp.com'],
+    :port            =>       first_inbox['smtp_ports'][2525],
     :authenticqation =>       'plain'
   }
 end
