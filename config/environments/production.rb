@@ -90,16 +90,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   #Mailer Configuration
-  config.action_mailer.default_url_options = {:host => 'mark-share.herokuapp.com'}
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    :user_name       =>				ENV['MAILTRAP_SMTP_LOGIN'],
-    :password        =>				ENV['MAILTRAP_SMTP_PASSWORD'],
-    :adress          =>       'smtp.mailtrap.io',
-    :domain          =>       'mark-share.herokuapp.com',
-    :port            =>       2525,
-    :authenticqation =>       'plain'
+  config.action_mailer.default_url_options = {:host => 'https://mark-share.herokuapp.com/'}
   }
 end
