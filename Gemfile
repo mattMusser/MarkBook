@@ -36,7 +36,8 @@ gem 'figaro', '~> 1.1'
 gem 'haml'
 # Use Pundit for authorization
 gem 'pundit'
-
+# Google Omniauthable
+gem 'omniauth-google'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

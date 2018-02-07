@@ -88,6 +88,7 @@ GEM
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
+    hashie (3.5.7)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
     jbuilder (2.7.0)
@@ -114,6 +115,17 @@ GEM
     nio4r (2.2.0)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
+    oauth (0.5.4)
+    omniauth (1.8.1)
+      hashie (>= 3.4.6, < 3.6.0)
+      rack (>= 1.6.2, < 3)
+    omniauth-google (1.0.2)
+      multi_json
+      omniauth (~> 1.0)
+      omniauth-oauth
+    omniauth-oauth (1.1.0)
+      oauth
+      omniauth (~> 1.0)
     orm_adapter (0.5.0)
     pg (0.21.0)
     public_suffix (3.0.1)
@@ -222,6 +234,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3)
   listen (>= 3.0.5, < 3.2)
+  omniauth-google
   pg (~> 0.20)
   puma (~> 3.7)
   pundit
