@@ -88,7 +88,18 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-  
+
   #Mailer Configuration
-  config.action_mailer.default_url_options = {:host => 'https://mark-share.herokuapp.com/'}
+  config.action_mailer.default_url_options = {:host => 'http://mark-share.herokuapp.com'}
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :user_name       =>				ENV['MAILTRAP_SMTP_LOGIN'],
+    :password        =>				ENV['MAILTRAP_SMTP_PASSWORD'],
+    :adress          =>       'smtp.mailtrap.io',
+    :domain          =>       'mark-share.herokuapp.com',
+    :port            =>       2525,
+    :authenticqation =>       'plain'
+  }
 end
