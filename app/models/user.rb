@@ -4,7 +4,8 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_bookmarks, through: :likes, source: :bookmark
 
-  devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
+  devise :database_authenticatable, :registerable, :recoverable, :rememberable,
+         :trackable, :validatable, :omniauthable
 
 
   def avatar_url(size)
