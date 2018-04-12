@@ -4,6 +4,6 @@ class UserMailer < ApplicationMailer
 	def welcome_email
 		@user = params[:user]
 		@url 	= 'http://example.com/users/sign_in'
-		mail(to: @user.email, subject: 'Welcome to MarkShare')
+		mail(to: @user.email, subject: 'Welcome to MarkBook')
 	end
 end
