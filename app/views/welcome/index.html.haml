@@ -1,7 +1,7 @@
 .row
 	.jumbotron
 		%h1.title-primary MarkBook
-		%h4.subTitle Bookmarks should be shared
+		%h4.subTitle Keep your bookmarks in one place and access them from anywhere!
 		- if !user_signed_in?
 			= link_to "Get Started", new_user_registration_path, :class => 'btn btn-success bannerBtn btn-lg'
 	.container
